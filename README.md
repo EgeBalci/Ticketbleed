@@ -16,6 +16,10 @@ VULNERABLE VERSIONS:
 
 <table>
     <tr>
+        <th>Product</th>
+        <th>Version</th>
+    </tr>
+    <tr>
         <th>BIG-IP LTM</th>
         <th>12.0.0 - 12.1.2 & 11.4.0 - 11.6.1</th>
     </tr>
