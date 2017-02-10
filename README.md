@@ -20,8 +20,8 @@ VULNERABLE VERSIONS:
         <th>Version</th>
     </tr>
     <tr>
-        <th>BIG-IP LTM</th>
-        <th>12.0.0 - 12.1.2 & 11.4.0 - 11.6.1</th>
+        <td>BIG-IP LTM</td>
+        <td>12.0.0 - 12.1.2 & 11.4.0 - 11.6.1</td>
     </tr>
     <tr>
         <td>BIG-IP AAM</td>
