@@ -8,6 +8,7 @@ This is a go library for exploiting Ticketbleed (CVE-2016-9244) vulnerability, t
 Ticketbleed (CVE-2016-9244) is a software vulnerability in the TLS stack of certain F5 products that allows a remote attacker to extract up to 31 bytes of uninitialized memory at a time, which can contain any kind of random sensitive information, like in Heartbleed.
 
 Founder: Filippo Valsorda
+
 Finding Ticketbleed: https://blog.filippo.io/finding-ticketbleed/
 
 
