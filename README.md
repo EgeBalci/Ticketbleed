@@ -7,21 +7,20 @@ This tool is for exploiting Ticketbleed (CVE-2016-9244) vulnerability, the Ticke
 # BUILD
 
 `
-cd Ticketbleed
-export GOPATH="Current path here"
-go build Ticketbleed.go
+	cd Ticketbleed
+	export GOPATH="Current path here"
+	go build Ticketbleed.go
 `
 
 # USAGE
+`
+		    ./Ticketbleed <ip:port> <options> 
+		OPTIONS:
+		    -o, --out   Output filename for raw memory
+		    -s, --size  Size in bytes to read (Output value may vary)
+		    -h, --help  Print this message
 
 `
-    ./Ticketbleed <ip:port> <options> 
-OPTIONS:
-    -o, --out   Output filename for raw memory
-    -s, --size  Size in bytes to read (Output value may vary)
-    -h, --help  Print this message
-`
-
 
 # About CVE-2016-9244
 
