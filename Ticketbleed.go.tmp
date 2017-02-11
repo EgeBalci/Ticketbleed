@@ -23,7 +23,7 @@ OPTIONS:
 	-h, --help 	Print this message
 
 */
-package Ticketbleed
+package main
 
 import "github.com/fatih/color"
 import "Ticketbleed"
