@@ -8,7 +8,7 @@ This tool is for exploiting Ticketbleed (CVE-2016-9244) vulnerability, the Ticke
 
 		cd Ticketbleed
         mv Ticketbleed.go.tmp Ticketbleed.go
-		export GOPATH="Current path here"
+		go get github.com/EgeBalci/Ticketbleed
 		go build Ticketbleed.go
 
 
