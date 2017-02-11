@@ -5,7 +5,6 @@
 package Ticketbleed
 
 import (
-	"github.com/fatih/color"
 	"container/list"
 	"crypto"
 	"crypto/rand"

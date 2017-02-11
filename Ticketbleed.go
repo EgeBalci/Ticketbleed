@@ -23,12 +23,12 @@ OPTIONS:
 	-h, --help 	Print this message
 
 */
-package main
+package Ticketbleed
 
+import "github.com/fatih/color"
 import "Ticketbleed"
 import "strconv"
 import "strings"
-import "color"
 import "os"
 
 
