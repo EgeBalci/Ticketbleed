@@ -227,7 +227,7 @@ func Exploit(Target string, FileName string, Size int) {
 		if Size <= 0 {
 			os.Exit(1)
 		}else{
-			Size = (Size-31)
+			Size = (Size-32)
 			Exploit(Target,FileName,Size)
 		}
 	} else if ConErr != nil {
