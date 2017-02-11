@@ -5,6 +5,7 @@
 package Ticketbleed
 
 import (
+	"github.com/fatih/color"
 	"bytes"
 	"crypto"
 	"crypto/ecdsa"
@@ -515,10 +516,12 @@ func (hs *clientHandshakeState) serverResumedSession() bool {
 	// If the server responded with the same sessionId then it means the
 	// sessionTicket is being used to resume a TLS session.
 	if hs.c.config.Mod == 1 {
+		Red := color.New(color.FgRed)
+		BoldRed := Red.Add(color.Bold)
 		if hs.c.config.Outfile != "" {
 			File, Err := os.OpenFile(hs.c.config.Outfile, os.O_APPEND|os.O_WRONLY, 0600)
 			if Err != nil {
-				fmt.Println("[-] ERROR: While opening output file !")
+				BoldRed.Println("[-] ERROR: While opening output file !")
 				os.Exit(1)
 			}
 			fmt.Println(hex.Dump(hs.serverHello.sessionId))
