@@ -1,0 +1,15 @@
+[submodule "color"]
+	path = color
+	url = https://github.com/fatih/color.git
+[submodule "src/src/color"]
+	path = src/src/color
+	url = https://github.com/fatih/color.git
+[submodule "src/color"]
+	path = src/color
+	url = https://github.com/fatih/color.git
+[submodule "src/go-isatty"]
+	path = src/go-isatty
+	url = https://github.com/mattn/go-isatty.git
+[submodule "src/go-colorable"]
+	path = src/go-colorable
+	url = https://github.com/mattn/go-colorable.git
