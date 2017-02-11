@@ -26,7 +26,7 @@ OPTIONS:
 package Ticketbleed
 
 import "github.com/fatih/color"
-import "Ticketbleed"
+import "github.com/EgeBalci/Ticketbleed"
 import "strconv"
 import "strings"
 import "os"
