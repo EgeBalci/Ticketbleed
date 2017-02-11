@@ -1,4 +1,4 @@
-# Ticketbleed [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://raw.githubusercontent.com/EgeBalci/Ticketbleed/master/LICENSE) 
+# Ticketbleed [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://raw.githubusercontent.com/EgeBalci/Ticketbleed/master/LICENSE) ![](https://img.shields.io/badge/CVE-2016--9244-red.svg)
 
 ![](http://i.imgur.com/B9XEkvA.png)
 
