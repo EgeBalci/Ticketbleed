@@ -43,7 +43,6 @@ var	Green *color.Color = color.New(color.FgGreen)
 var	BoldGreen *color.Color = Green.Add(color.Bold)
 
 
-
 var OutputFile string = ""
 var BleedSize int = 0
 
