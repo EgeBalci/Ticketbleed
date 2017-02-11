@@ -120,7 +120,7 @@ var Banner string = `
              ░                                    ░                        ░      
 `
 var Help string = `
-Author: Ege Balci
+Author: Ege Balcı
 Github: github.com/EgeBalci/Ticketbleed
 
 
