@@ -5,7 +5,6 @@
 package Ticketbleed
 
 import (
-	"github.com/fatih/color"
 	"bytes"
 	"crypto"
 	"crypto/ecdsa"
