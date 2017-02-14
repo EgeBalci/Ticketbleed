@@ -124,7 +124,7 @@ Github: github.com/EgeBalci/Ticketbleed
 
 
 USAGE: 
-	./ticketbleed <ip:port> <options> 
+	./Ticketbleed <ip:port> <options> 
 OPTIONS:
 	-o, --out 	Output filename for raw memory
 	-s, --size 	Size in bytes to read (Output value may vary)
